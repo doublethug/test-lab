@@ -25,3 +25,18 @@ docker network rm `docker network ls -q`
 
 # The following command show only show the default networks:
 # docker network ls
+
+
+# Inlstaling LTS Node
+
+nvm install node --latest-npm --reinstall-packages-from=node
+nvm install --lts --latest-npm --reinstall-packages-from='lts/*'
+
+
+# Create new component from terminal
+
+npx generate-react-cli component MyComponent
+
+
+# to check if WebGL is available 
+https://github.com/mrdoob/three.js/blob/master/examples/jsm/WebGL.js
