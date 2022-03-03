@@ -1,0 +1,37 @@
+.SideMenu {
+    display: flex;
+    border-right: 1px solid #61dafb;
+    height: 100%;
+    flex-direction: column;
+}
+
+// .mainSideMenuWrapper {
+//     border: 1px solid red;
+// }
+
+
+.mainSideMenu {
+    height: 100%;
+    width: 130px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    list-style-type: upper-roman;
+    text-align: left;
+    margin-top: 0;
+    padding-top: 15px;
+}
+
+a:link, a:visited {
+    color: black;
+    padding: 7px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    border-radius: 4px;
+    background-color: gray;
+}

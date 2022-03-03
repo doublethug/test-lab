@@ -5,6 +5,7 @@ import * as THREE from 'three';
 /* istanbul ignore next */
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
+import { WebGLRenderer } from 'three';
 
 const FourDPlayer:FunctionComponent<{ initial?: number }> = ({ initial = 0 }) => {
 
@@ -37,8 +38,9 @@ const FourDPlayer:FunctionComponent<{ initial?: number }> = ({ initial = 0 }) =>
     
     
   
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    document.getElementsByClassName('container-three-js')[0].appendChild( renderer.domElement );
+    // renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize( window.innerWidth-200, window.innerHeight-220 );
+    document.getElementById('canva-wrapper')?.appendChild( renderer.domElement );
   
   
     var geometry = new THREE.BoxGeometry( 1, 1, 1 );
@@ -69,20 +71,23 @@ const FourDPlayer:FunctionComponent<{ initial?: number }> = ({ initial = 0 }) =>
       cube.rotation.y += 0.01;
       renderer.render( scene, camera );
     };
+
     animate();
     // === THREE.JS EXAMPLE CODE END ===
 
     // LOAD MODEL
-    const loader = new FBXLoader();
-    loader.load( 'Samba Dancing.fbx', function ( object ) {
+    // const loader = new FBXLoader();
+    // loader.load( 'Samba Dancing.fbx', function ( object ) {
 
-        scene.add( object );
+    //     scene.add( object );
     
-    }, undefined, function ( e ) {
+    // }, undefined, function ( e ) {
     
-      console.error( e );
+    //   console.error( e );
     
-    } );
+    // } );
+
+    // LOAD MODEL ----- END
 
     // loader.load( './Samba Dancing.fbx', function ( object ) {
 
@@ -106,11 +111,19 @@ const FourDPlayer:FunctionComponent<{ initial?: number }> = ({ initial = 0 }) =>
 
     // } );
     
+    // returned function will be called on component unmount 
+    return () => {
+      renderer = new WebGLRenderer();
+      document.querySelectorAll('#canva-wrapper canvas')[0]?.remove();
+      return;
+    }
   });
+  
   return <>
     <p>Clicks: {clicks}</p>
     <button onClick={() => setClicks(clicks+1)}>+</button>
     <button onClick={() => setClicks(clicks-1)}>-</button>
+    <div id="canva-wrapper" />
   </>
 }
 

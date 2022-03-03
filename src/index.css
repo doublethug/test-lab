@@ -5,6 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  min-height: 100%;
+}
+
+html, body, div#root {
+  height: 100%;
+}
+
+div#root {
+  display: flex;
+  flex-direction: column;
 }
 
 code {
@@ -17,33 +28,4 @@ code {
   width: 20px;
   display: inline-block;
   vertical-align: bottom;
-}
-
-.main-side-menu {
-  display: block;
-  position: absolute;
-  height: 100%;
-  width: 130px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background-color: white;
-  list-style-type: upper-roman;
-  text-align: left;
-  border-right: 1px solid rebeccapurple;
-  margin-top: 0;
-  padding-top: 15px;
-}
-
-a:link, a:visited {
-  color: black;
-  padding: 7px 5px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-a:hover, a:active {
-  border-radius: 4px;
-  background-color: gray;
 }

@@ -1,1 +1,8 @@
-.DashBoard {}
+.DashBoard {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.DashBoardText {
+    text-align: left;
+}

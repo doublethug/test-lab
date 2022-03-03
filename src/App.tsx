@@ -2,34 +2,30 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
+
+import SideMenu from './components/SideMenu/SideMenu';
 
 import DashBoard from './components/DashBoard/DashBoard';
 import MathLab from './components/MathLab/MathLab';
 import ModelsPreview from './components/ModelsPreview/ModelsPreview';
+import HeightMapGenerator from './components/HeightMapGenerator/HeightMapGenerator';
+import ThreePlayer from './components/ThreePlayer/ThreePlayer';
 
-import './App.css';
+import styles from './App.module.scss';
+// import './App.css';
 
-import logo from './logo.svg';
+import logo from './logo.png';
 
 function App() {
-  
   return (
     <Router>
-      <div className="App">
-        <ul className="main-side-menu">
-          <li>
-            <Link to="/">Dash Board</Link>
-          </li>
-          <li>
-            <Link to="/math-lab">Math Lab</Link>
-          </li>
-          <li>
-            <Link to="/model-preview">Models Preview</Link>
-          </li>
-        </ul>
+      <header className={styles.appHeader}>
+        <img src={logo} className={styles.appLogo} alt="logo" />
+      </header>
+      <div className={styles.app}>
+        <SideMenu />
         <Switch>
           <Route exact path="/">
             <DashBoard />
@@ -39,6 +35,12 @@ function App() {
           </Route>
           <Route path="/model-preview">
             <ModelsPreview />
+          </Route>
+          <Route path="/height-maps">
+            <HeightMapGenerator />
+          </Route>
+          <Route path="/three-player">
+            <ThreePlayer />
           </Route>
         </Switch>
         {/* <header className="App-header">

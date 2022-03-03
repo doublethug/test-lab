@@ -1,0 +1,9 @@
+.HeightMapGenerator {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .myCanvas {
+        border: 2px solid red;
+    }
+}

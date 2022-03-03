@@ -1,9 +1,15 @@
 import React from 'react';
 import styles from './DashBoard.module.scss';
 
+import PageHeader from '../PageHeader/PageHeader';
+
 const DashBoard = () => (
   <div className={styles.DashBoard} data-testid="DashBoard">
-    DashBoard Component
+    <PageHeader text="Dashboard" />
+    <div className={styles.DashBoardText}>
+      <p>Count of comopnetns: 5</p>
+    </div>
+    
   </div>
 );
 

@@ -1,1 +1,8 @@
-.MathLab {}
+.MathLab {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.MathLabText {
+    text-align: left;
+}
